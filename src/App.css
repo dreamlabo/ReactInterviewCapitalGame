@@ -1,0 +1,35 @@
+*, 
+*::after, 
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Jost', sans-serif;
+    width: 100vw;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+button {
+    padding: .8em 1.6em;
+    background: #121212;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+}
+
+button + button {
+    margin-left: 1rem;
+}
+
+.selected {
+    background: #0000FF;
+}
+
