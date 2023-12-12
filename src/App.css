@@ -29,7 +29,14 @@ button + button {
     margin-left: 1rem;
 }
 
+.default {
+    background: #121212;
+}
+
 .selected {
     background: #0000FF;
 }
 
+.wrong {
+    background: #FF0000;
+}

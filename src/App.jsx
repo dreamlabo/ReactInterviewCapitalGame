@@ -1,6 +1,5 @@
-import { useState } from 'react'
+
 import './App.css'
-import Hello  from "./components/hello"
 import CountryCapitalGame from './components/CountryCapitalGame'
 
 const capitals = {
@@ -12,7 +11,7 @@ const capitals = {
 function App() {
   return (
     <>
-      <Hello/>
+      <h1>State Capital Game</h1>
       <CountryCapitalGame data={capitals}/>
     </>
   )
