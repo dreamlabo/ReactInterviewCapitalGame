@@ -1,9 +1,13 @@
-
 import './App.css'
 import CountryCapitalGame from './components/CountryCapitalGame'
+import Header from './components/Header'
 
 const capitals = {
+  California: "Sacramento",
   Colorado: "Denver",
+  Connecticut: "Hartford",
+  Illinois: "Springfield",
+  Minnesota: "Saint Paul",
   Washington: "Olympia",
   Hawaii: "Honolulu"
 }
@@ -11,8 +15,9 @@ const capitals = {
 function App() {
   return (
     <>
-      <h1>State Capital Game</h1>
-      <CountryCapitalGame data={capitals}/>
+    <Header></Header>
+      <h1>State Capital Matching Game</h1>
+      <CountryCapitalGame className="section-container" data={capitals}/>
     </>
   )
 }

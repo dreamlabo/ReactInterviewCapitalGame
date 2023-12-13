@@ -2,12 +2,13 @@ import React from 'react'
 import { useState } from 'react'
 
 const CountryCapitalGame = ({data}) => {
-    const states = Object.keys(data);
-    const capitals = Object.values(data);
-
     const SELECTED = "SELECTED";
     const WRONG = "WRONG";
     const DEFAULT = "DEFAULT";
+    const states = Object.keys(data);
+    const capitals = Object.values(data);
+
+
 
     const [buttonTexts, setButtonTexts] = useState([...states, ...capitals]
             .map(value => ({
@@ -43,33 +44,34 @@ const CountryCapitalGame = ({data}) => {
     } 
 
     const buttonClickHandler = (text, buttonTexts) => {
-      if(!prevValue) {
-          setButtonTexts(
-              buttonTexts.map(option => {
-                    return {
-                          ...option,
-                          state: option === text ? SELECTED : DEFAULT
-                        }
-          }))
-          setPrevValue(text.value)
-      }
-      else if (text.value !== prevValue) {
-            if ((data.hasOwnProperty(text.value) && data[text.value] === prevValue) || (data[prevValue] === text.value)){
-                setButtonTexts(buttonTexts.filter(opt => {
-                    return opt.value !== text.value && opt.value !== prevValue} ))
-            }
-            else {
+            if(!prevValue) {
                 setButtonTexts(
-                  buttonTexts.map(option => {
-                        return option === text || option.state === SELECTED
-                            ? {
-                              ...option,
-                              state: WRONG
-                            } : option;
-              }));
+                    buttonTexts.map(option => {
+                          return {
+                                ...option,
+                                state: option === text ? SELECTED : DEFAULT
+                              }
+                }))
+                setPrevValue(text.value)
             }
-          setPrevValue("");
-      }
+            else if (text.value !== prevValue) {
+                  if ((data.hasOwnProperty(text.value) && data[text.value] === prevValue) || (data[prevValue] === text.value)){
+                      setButtonTexts(buttonTexts.filter(opt => {
+                          return opt.value !== text.value && opt.value !== prevValue} ))
+                  }
+                  else {
+                      setButtonTexts(
+                        buttonTexts.map(option => {
+                              return option === text || option.state === SELECTED
+                                  ? {
+                                    ...option,
+                                    state: WRONG
+                                  } 
+                                  : option;
+                    }));
+                  }
+                setPrevValue("");
+            }
     }
 
     const createButtons = buttonTexts.map(text => {
@@ -81,16 +83,15 @@ const CountryCapitalGame = ({data}) => {
                                     )
                           });
 
-    return (<>
-              {buttonTexts.length === 0 ? (
-                                            <div>
+    return (<div className="section-container">
+              {buttonTexts.length === 0 ? (<div >
                                               <p>Congratulations!</p>
                                               <button onClick={restart}>Play Again</button>
                                             </div>
                                           )
                                           : 
                                           createButtons}
-            </>
+            </div>
           )
 }
 
