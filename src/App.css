@@ -13,8 +13,8 @@
     --clr-primary: #0B3C5D;
     --clr-text-main: #FFFFFF;
     --clr-dark: #121212;
-    --clr-selected: #0000FF;
-    --clr-wrong: #FF0000;
+    --clr-selected: #009BFF;
+    --clr-wrong: #EE0000;
 }
 
 body {
@@ -89,8 +89,10 @@ button {
 
 .selected {
     background: var(--clr-selected);
+    color: var(--clr-dark);
 }
 
 .wrong {
     background: var(--clr-wrong);
+    
 }
